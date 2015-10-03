@@ -12,7 +12,7 @@ RUN apt-get update -y && apt-get install metasploit-framework -y && msfupdate
 ####################################################
 # CUSTOMIZE METASPLOIT BANNER TO SOMETHING SECKC
 ####################################################
-RUN rm /usr/share/metasploit-framweork/data/logos/*.txt
+RUN rm /usr/share/metasploit-framework/data/logos/*.txt
 COPY seckc-docker.txt /usr/share/metasploit-framework/data/logos/cowsay.txt
 
 ####################################################
