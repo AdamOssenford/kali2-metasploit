@@ -7,7 +7,7 @@ MAINTAINER Adam Ossenford <AdamOssenford@gmail.com>
 ####################################################
 # UPDATE APT AND INSTALL THE METASPLOIT FRAMEWORK
 ####################################################
-RUN apt-get update -y && apt-get install metasploit-framework -y 
+RUN apt-get update -y && apt-get install metasploit-framework -y && msfupdate
 
 ####################################################
 # CUSTOMIZE METASPLOIT BANNER TO SOMETHING SECKC
