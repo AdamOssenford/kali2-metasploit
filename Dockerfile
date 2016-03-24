@@ -18,8 +18,8 @@ COPY seckc-docker.txt /usr/share/metasploit-framework/data/logos/cowsay.txt
 ####################################################
 # SOMETIMES THE DATABASE SUCKS SO RESTART IT NOW
 ####################################################
-RUN msfdb init && sleep 2 
-RUN /etc/init.d/postgresql start && sleep 5
+RUN msfdb init 
+RUN /etc/init.d/postgresql restart 
 
 ####################################################
 # WE ENTER AT /bin/bash YOU COULD CHANGE THIS
