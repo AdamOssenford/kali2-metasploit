@@ -11,4 +11,7 @@ docker run -it -p 2002:22 -p 9999:9999 adamoss/kali2-metasploit
 ```
 Adjust the -p port settings as needed
 
-the above settings will forward host machine port 2002 to container port 22 along with host machine port 9999 to container port 9999
+Use host net
+```
+docker run -it --net=host adamoss/kali2-metasploit
+```
