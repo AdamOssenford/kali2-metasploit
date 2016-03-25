@@ -4,25 +4,25 @@ FROM adamoss/kali2-base
 ####################################################
 MAINTAINER Adam Ossenford <AdamOssenford@gmail.com>
 
+
+####################################################
+# INSERT OUR LAUNCH ENTRY POINT SCRIPT
+####################################################
+COPY launch.sh /usr/bin/launch.sh
 ####################################################
 # UPDATE APT AND INSTALL THE METASPLOIT FRAMEWORK
 ####################################################
-RUN apt-get update -y && apt-get install metasploit-framework -y && msfupdate 
-
+RUN apt-get update -y && apt-get install metasploit-framework -y && msfupdate && rm /usr/share/metasploit-framework/data/logos/*.txt && chmod 755 /usr/bin/launch.sh
 ####################################################
 # CUSTOMIZE METASPLOIT BANNER TO SOMETHING SECKC
 ####################################################
-RUN rm /usr/share/metasploit-framework/data/logos/*.txt
 COPY seckc-docker.txt /usr/share/metasploit-framework/data/logos/cowsay.txt
-
 ####################################################
 # SOMETIMES THE DATABASE SUCKS SO RESTART IT NOW
 ####################################################
-RUN msfdb init 
-RUN /etc/init.d/postgresql restart 
-
+#RUN msfdb init 
 ####################################################
 # WE ENTER AT /bin/bash YOU COULD CHANGE THIS
 ####################################################
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/usr/bin/launch.sh"]
  
