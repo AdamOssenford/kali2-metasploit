@@ -3,8 +3,6 @@ FROM adamoss/kali2-base
 # YOU CAN USE officialkali/kali:2.0 if you wish   ##
 ####################################################
 MAINTAINER Adam Ossenford <AdamOssenford@gmail.com>
-
-
 ####################################################
 # INSERT OUR LAUNCH ENTRY POINT SCRIPT
 ####################################################
