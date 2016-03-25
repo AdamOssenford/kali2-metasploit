@@ -10,17 +10,14 @@ COPY launch.sh /usr/bin/launch.sh
 ####################################################
 # UPDATE APT AND INSTALL THE METASPLOIT FRAMEWORK
 ####################################################
-RUN apt-get update -y && apt-get install metasploit-framework -y && msfupdate && rm /usr/share/metasploit-framework/data/logos/*.txt && chmod 755 /usr/bin/launch.sh
+RUN apt-get update -y && \
+ apt-get install metasploit-framework -y && \
+ msfupdate && \
+ rm /usr/share/metasploit-framework/data/logos/*.txt && \
+ chmod 755 /usr/bin/launch.sh
 ####################################################
 # CUSTOMIZE METASPLOIT BANNER TO SOMETHING SECKC
 ####################################################
 COPY seckc-docker.txt /usr/share/metasploit-framework/data/logos/cowsay.txt
-####################################################
-# SOMETIMES THE DATABASE SUCKS SO RESTART IT NOW
-####################################################
-#RUN msfdb init 
-####################################################
-# WE ENTER AT /bin/bash YOU COULD CHANGE THIS
-####################################################
+
 ENTRYPOINT ["/usr/bin/launch.sh"]
- 
